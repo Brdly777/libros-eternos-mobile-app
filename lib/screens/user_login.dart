@@ -30,21 +30,21 @@ class _UserLoginState extends State<UserLogin> {
                 children: [
                   Icon(
                     Icons.menu_book_rounded,
-                    color: isDarkMode ? Colors.white : Colors.black,
+                    color: theme.iconTheme.color,
                   ),
                   const SizedBox(width: 12),
                   Text(
                     'Libros',
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      color: isDarkMode ? Colors.white : Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                     ),
                   ),
                   Text(
                     'Eternos',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: isDarkMode ? Colors.white : Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                     ),
                   ),
                 ],
@@ -71,7 +71,7 @@ class _UserLoginState extends State<UserLogin> {
             Container(
               constraints: const BoxConstraints(maxWidth: 400, maxHeight: 300),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: isDarkMode ? Colors.grey[900] : Colors.white,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
@@ -86,11 +86,11 @@ class _UserLoginState extends State<UserLogin> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "Iniciar sesión",
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -98,23 +98,23 @@ class _UserLoginState extends State<UserLogin> {
                   Container(
                     height: 1.5,
                     width: double.infinity,
-                    color: Colors.blue,
+                    color: theme.primaryColor,
                   ),
                   const SizedBox(height: 16.0),
-                  const CustomTextField(
+                  CustomTextField(
                     hintText: 'Ingresa tu Correo',
                     suffixIcon: Icon(
                       Icons.email,
-                      color: Colors.black,
+                      color: theme.iconTheme.color,
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  const CustomTextField(
+                  CustomTextField(
                     hintText: 'Ingresa tu Contraseña',
                     obscureText: true,
                     suffixIcon: Icon(
                       Icons.lock,
-                      color: Colors.black,
+                      color: theme.iconTheme.color,
                     ),
                   ),
                   const SizedBox(height: 16.0),
@@ -128,12 +128,12 @@ class _UserLoginState extends State<UserLogin> {
                             _rememberMe = newValue!;
                           });
                         },
-                        activeColor: Colors.blue,
+                        activeColor: theme.primaryColor,
                       ),
-                      const Text(
+                      Text(
                         "Recuérdame",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: theme.textTheme.bodyLarge?.color,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -161,10 +161,10 @@ class _UserLoginState extends State<UserLogin> {
                   MaterialPageRoute(builder: (context) => UserRegistration()),
                 );
               },
-              child: const Text(
+              child: Text(
                 'No tienes cuenta? Regístrate aquí',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: theme.primaryColor,
                   decoration: TextDecoration.underline,
                 ),
               ),
@@ -177,10 +177,10 @@ class _UserLoginState extends State<UserLogin> {
                   MaterialPageRoute(builder: (context) => PasswordRecovery()),
                 );
               },
-              child: const Text(
+              child: Text(
                 'Recuperar contraseña',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: theme.primaryColor,
                   decoration: TextDecoration.underline,
                 ),
               ),

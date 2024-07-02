@@ -1,5 +1,3 @@
-// home.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../theme_notifier.dart';
@@ -34,6 +32,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Esto oculta la flecha de regreso
         title: Stack(
           children: [
             Row(
@@ -42,6 +41,7 @@ class _HomeState extends State<Home> {
                   Icons.home_rounded,
                   color: isDarkMode ? Colors.white : Colors.black,
                 ),
+                const SizedBox(width: 12),
                 Text(
                   'Inicio',
                   style: TextStyle(
