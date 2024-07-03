@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libreria/screens/profile.dart';
 import 'package:provider/provider.dart';
 import '../theme_notifier.dart';
 import 'book_list.dart'; // Importa el archivo book_list.dart
@@ -16,7 +17,7 @@ class _HomeState extends State<Home> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeContent(),
     BookList(), // Usa el BookList como una de las opciones de navegación
-    Text('Perfil'),
+    Profile()
   ];
 
   void _onItemTapped(int index) {
@@ -69,12 +70,12 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Inicio',
+            icon: Icon(Icons.auto_awesome_motion_sharp),
+            label: 'Catalogo',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
-            label: 'Libros',
+            label: 'Prestamos',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -132,10 +133,10 @@ class HomeContent extends StatelessWidget {
                               onPressed: () {},
                               style: ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all<Color>(
+                                    WidgetStateProperty.all<Color>(
                                         Colors.blue),
                                 foregroundColor:
-                                    MaterialStateProperty.all<Color>(
+                                    WidgetStateProperty.all<Color>(
                                         Colors.white),
                               ),
                               child: const Row(
