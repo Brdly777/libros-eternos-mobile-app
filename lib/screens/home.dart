@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../theme_notifier.dart';
 import 'book_list.dart'; // Importa el archivo book_list.dart
+import 'profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,7 +17,7 @@ class _HomeState extends State<Home> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeContent(),
     BookList(), // Usa el BookList como una de las opciones de navegación
-    Text('Perfil'),
+    Profile(),
   ];
 
   void _onItemTapped(int index) {
