@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:libreria/screens/profile.dart';
 import 'package:provider/provider.dart';
 import '../theme_notifier.dart';
-import 'book_list.dart'; // Importa el archivo book_list.dart
+import 'book_list.dart';
+import '../widgets/book_detail.dart';
+import 'profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeContent(),
     BookList(), // Usa el BookList como una de las opciones de navegación
-    Profile()
+    Profile(),
   ];
 
   void _onItemTapped(int index) {
@@ -70,8 +71,8 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.auto_awesome_motion_sharp),
-            label: 'Catalogo',
+            icon: Icon(Icons.home),
+            label: 'Inicio',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
@@ -130,13 +131,15 @@ class HomeContent extends StatelessWidget {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _showBookDetail(context);
+                              },
                               style: ButtonStyle(
                                 backgroundColor:
-                                    WidgetStateProperty.all<Color>(
+                                    MaterialStateProperty.all<Color>(
                                         Colors.blue),
                                 foregroundColor:
-                                    WidgetStateProperty.all<Color>(
+                                    MaterialStateProperty.all<Color>(
                                         Colors.white),
                               ),
                               child: const Row(
@@ -159,6 +162,22 @@ class HomeContent extends StatelessWidget {
           );
         }).toList(),
       ),
+    );
+  }
+
+  void _showBookDetail(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return const BookDetail(
+          title: 'Mujercitas',
+          fechaPrestamo: '19/06/2024',
+          fechaDevolucion: '20/06/2024',
+          estado: 'Vencido',
+          descripcion:
+              'Mujercitas es una novela escrita por Louisa May Alcott y publicada en 1868. La historia sigue la vida de las hermanas March, Jo, Meg, Beth y Amy, y su viaje hacia la madurez.',
+        );
+      },
     );
   }
 }
